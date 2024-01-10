@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <!--↑bootstrapアイコンリンク-->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+        <!---->
+        <link href="./search.css" rel="stylesheet" type="text/css">    
+        <!-- vue.jsのCDN -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <!-- JSONを扱うためのCDN -->
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <!-- JSの読み込み -->
+        <script src="./searchVue.js" defer></script>
+    </head>
+
+    <body>
+        <!--↓ローディング画面-->
+        <div class="loading">
+            <i class="bi bi-balloon"></i><p class="load" id="load"></p><!--←Loadingの文字-->
+        </div>
+        <div class="animated-text" id="textContainer"></div><!--←Asobantoの文字-->
+        <div class="main">
+            <div class="left">
+                <div class="square1"></div> 
+                <div class="square2"></div>
+                <div class="square3"></div>
+                <div class="square4"></div>
+                <div class="circle"></div>
+            </div> 
+            <div class="inside">
+                <div id="app" class="box">
+                        <div class="tag1">■世代 ＿ generation</div>
+                        <div class="group1">
+                            <div class="imp1">
+                                <input id="item-1" class="generation" type="radio" name="accessible-radio" value="family" checked="checked" v-model="conditions.generation"/>
+                                <label class="radio-inline__label" for="item-1">
+                                家族<br><span style="color:black">family</span>
+                                </label>
+                            </div>
+                            <div class="imp2">
+                                <input id="item-2" class="generation" type="radio" name="accessible-radio" value="teenager" v-model="conditions.generation"/>
+                                    <label class="radio-inline__label" for="item-2">
+                                    中高生<br><span style="color:black">teenager</span>
+                                </label>  
+                            </div> 
+                            <div class="imp3">              
+                                <input id="item-3" class="generation" type="radio" name="accessible-radio" value="adult" v-model="conditions.generation"/>
+                                    <label class="radio-inline__label" for="item-3">
+                                    大人<br><span style="color:black">adult</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="group2">
+                            <div class="tag2">■料金 ＿ fee</div>
+
+                            <div class="tag3">■人数 ＿ number of people</div>
+                        </div>
+
+                        <div class="group3">
+                            <label class="fee">
+                                <select v-model="conditions.fee">
+                                    <option>無料</option>
+                                    <option>〜1000</option>
+                                    <option>〜3000</option>
+                                    <option>〜5000</option>
+                                </select>
+
+                            </label>
+                            <label class="numberofpeople">
+                                <select v-model="conditions.people">
+                                    <option>1〜2人</option>
+                                    <option>3〜5人</option>
+                                    <option>6人〜</option>
+                                </select>
+                            </label>
+                        </div>
+
+
+                        <div class="tag4">■場面 ＿ scene</div>
+                        <div class="group4">
+                            <div class="imp1">
+                                <input id="item-4" class="scene" type="checkbox" true-value=1 false-value=0 name="scene" v-model="conditions.date"/>
+                                <label class="check-inline__label" for="item-4">
+                                デート<br><span style="color:black">date</span>
+                                </label>
+                            </div>
+                            <div class="imp2">
+                                <input id="item-5" class="scene" type="checkbox" true-value=1 false-value=0 name="scene" v-model="conditions.outdoor"/>
+                                    <label class="check-inline__label" for="item-5">
+                                    屋外<br><span style="color:black">outdoor</span>
+                                </label>  
+                            </div> 
+                            <div class="imp3">              
+                                <input id="item-6" class="scene" type="checkbox" true-value=1 false-value=0 name="scene"  v-model="conditions.indoor"/>
+                                <label class="check-inline__label" for="item-6">
+                                    屋内<br><span style="color:black">indoor</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="group5">
+                            <button name="btn-search" class="btn-search" @click="goMap">検索<br><span style="color:black">search</span></button>
+                        </div>
+                </div>
+            </div>    
+        </div>  
+        <script language="javascript" type="text/javascript">
+            setTimeout(function() {
+            const textContainer = document.getElementById('textContainer');
+            const text = "Asobanto⤴";
+            for (let i = 0; i < text.length; i++) {
+                const letterSpan = document.createElement('span');
+                letterSpan.className = 'letter';
+                letterSpan.textContent = text[i];
+                letterSpan.style.animationDelay = `${i * 0.4}s`;//Asobanto秒数指定//
+                textContainer.appendChild(letterSpan);
+            }
+            }, 10);
+            
+            setTimeout(function() {
+                const textContainer = document.getElementById('load');
+                const text = "Loading...";
+                for (let i = 0; i < text.length; i++) {
+                const letterSpan = document.createElement('span');
+                letterSpan.className = 'letter';
+                letterSpan.textContent = text[i];
+                letterSpan.style.animationDelay = `${i * 0.08}s`;//Loading秒数指定//
+                textContainer.appendChild(letterSpan);
+                }
+            }, 10);
+        </script> 
+    </body>
+
+</html>

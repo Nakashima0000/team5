@@ -1,0 +1,517 @@
+* {
+    margin: 0;
+    padding:0;
+}
+
+
+html {
+    background-color: #D4C4A3;
+
+}   
+/* ↓ローディング画面*/
+.loading {
+    background-color: #004831;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 101;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeOut 2s 1s forwards;
+}
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* ↓ローディング風船*/
+.bi-balloon{
+    color: #D4C4A3;
+    display: inline-block;
+    font-size: 40px;
+    transform-origin: center;
+    animation: shake 2s infinite;
+    padding-right: 1%;
+}
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(-5deg); }
+    75% { transform: rotate(3deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* ↓ローディング文字*/
+.load{
+    color: #D4C4A3;
+    font-family: cursive;
+    font-size: 20px;
+}
+
+.animated-text {
+    white-space: nowrap;
+    overflow: hidden;
+    color: #000000;
+    text-align: center;
+    font-size: 500%;
+    font-weight: bold;/*文字を太く*/
+    font-family: BIZ UDGothic;
+    margin-bottom: 2px;
+}
+
+.letter {
+    display: inline-block;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.main {
+    /*padding: 1rem;*/
+    height: auto;
+    max-width: 1920px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 16px;
+}
+
+
+
+.left {
+    /*width: 460px;
+    height: 1024px;*/
+    float: left;
+}
+
+
+.square1 {
+    width: 9vw;
+    height: 30vw;
+    background-color: #004831;
+    margin-top: 20%;
+    float: left;
+    position: relative;
+    z-index: 10;
+    opacity: 0; /* 初めは透明に設定 */
+    transform: translateX(-100%); /* 左からスライドするために位置を左に設定 (マイナス指定で左に)*/
+    animation: square1 2s forwards; /* フェードインアニメーションの設定 */ 
+}
+
+@keyframes square1 {
+    to {
+      opacity: 1; /* アニメーション終了時に完全に表示 */
+      transform: translateY(0); /* アニメーション終了時の位置 */
+      }
+    }
+
+
+.square2 {
+    width: 13vw;
+    height: 17vw; 
+    background-color: #F8F6F3;
+    margin-top: 4%;
+    margin-left: 6%;
+    z-index: 100;
+    position: absolute;
+    opacity: 0; /* 初めは透明に設定 */
+    transform: translateX(100%); /* 右からスライドするために位置を右に設定 */
+    animation: square2 2s forwards; /* フェードインアニメーションの設定 */ 
+}
+
+@keyframes square2 {
+    to {
+      opacity: 1; /* アニメーション終了時に完全に表示 */
+      transform: translateY(0); /* アニメーション終了時の位置 */
+      }
+    }
+
+
+.circle {
+    width: 10vw;
+    height: 10vw;
+    border-radius: 50%;
+    background-color:#D9D9D9;
+    margin-top: 25%;
+    margin-left: 8%;
+    z-index: 100;
+    position: absolute;
+    opacity: 0; /* 初めは透明に設定 */
+    transform: translateY(-100%); /* 上からスライドするために位置を上に設定(マイナス指定で上に) */
+    animation: circle 2s forwards; /* フェードインアニメーションの設定 */ 
+}
+
+@keyframes circle {
+    to {
+      opacity: 1; /* アニメーション終了時に完全に表示 */
+      transform: translateY(0); /* アニメーション終了時の位置 */
+      }
+    }
+
+.square3 {
+    width: 13vw;
+    height: 13vw;
+    background-color: #004831;
+    margin-top: 40%;
+    float: left;
+    position: absolute;
+    opacity: 0; /* 初めは透明に設定 */
+    transform: translateX(100%); /* 右からスライドするために位置を右に設定 */
+    animation: square3 2s forwards; /* フェードインアニメーションの設定 */ 
+}
+
+@keyframes square3 {
+    to {
+      opacity: 1; /* アニメーション終了時に完全に表示 */
+      transform: translateY(0); /* アニメーション終了時の位置 */
+      }
+    }
+
+
+.square4 {
+    width: 5vw;
+    height: 15vw;
+    background-color: #F8F6F3;
+    margin-top: 35%;
+    margin-left: 2%;
+    position: absolute;
+    opacity: 0; /* 初めは透明に設定 */
+    transform: translateY(100%); /* 下からスライドするために位置を下に設定 */
+    animation: square4 2s forwards; /* フェードインアニメーションの設定 */ 
+}
+
+@keyframes square4 {
+    to {
+      opacity: 1; /* アニメーション終了時に完全に表示 */
+      transform: translateY(0); /* アニメーション終了時の位置 */
+    }
+  }
+
+
+/*.inside {
+    
+}*/
+
+
+.box {
+    width: 70vw;
+    background-color: #004831;
+    border-top-right-radius: 80px;
+    position: relative;
+    margin: 0 3% 0 auto;
+    padding: 2% 3%;
+}
+
+.tag1 {
+    color: #F8F6F3;
+    font-size: 2em;
+}
+
+.tag2 {
+    color: #F8F6F3;
+    font-size: 2em; 
+    position: absolute;
+    left: 0%; 
+}
+
+.tag3 {
+    color: #F8F6F3;
+    font-size: 2em;
+    text-align: center;
+    margin-left:50%;
+}
+
+.tag4 {
+    color: #F8F6F3;
+    font-size: 2em;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+body {
+    font-family: 'Open Sans', helvetica, arial, sans-serif;
+
+    
+    line-height: 1.6;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    line-height: 1.2;
+}
+
+/*p {
+    margin: 0 0 1.6rem;
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid #ddd;
+}*/
+
+.generation {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.scene {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.group1 {
+    padding: 1% 0;
+    width: 50vw;
+    display: flex;
+    margin: auto;
+}
+
+.group2 {
+    display: flex;
+    /*justify-content: center;*/
+    position: relative;
+    /*width: 50vw;*/
+}
+
+.group3 {
+    display: flex;
+    justify-content: space-around;
+}
+
+.group4 {
+    padding: 1% 0;
+    width: 50vw;
+    display: flex;
+    margin: auto; 
+}
+
+.group5 {
+    padding:2% 0 0 0;
+    text-align: center;
+}
+
+.imp1 {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imp2 {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imp3 {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.radio-inline__label {
+    display: inline-block;
+    padding: 1.3rem 2rem;
+    margin-right: 18px;
+    border-radius: 3px;
+    transition: all .2s;
+    background-color: #F3F8F6;
+    color: #004831;
+    width: 10vw;
+    text-align: center;
+    border-radius:0% 40%;
+    font-size: 1em;
+    line-height: normal;
+    opacity: 0; /* 初めは透明に設定 */
+    transform: translateY(100%); /* 下からスライドするために位置を下に設定 */
+    animation: radio-inline__label 2s forwards; /* フェードインアニメーションの設定 */ 
+}
+
+@keyframes radio-inline__label {
+    to {
+      opacity: 1; /* アニメーション終了時に完全に表示 */
+      transform: translateY(0); /* アニメーション終了時の位置 */
+    }
+  }
+
+
+
+.generation:checked + .radio-inline__label {
+    background: #D4C4A3;
+    color: #004831;
+    text-shadow: 0 0 1px rgba(0,0,0,.7);
+}
+
+.generation:focus + .radio-inline__label {
+    /*outline-color: #4D90FE;*/
+    outline-offset: -2px;
+    outline-style: auto;
+    outline-width: 5px;
+}
+
+
+.fee {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    opacity: 0; /* 初めは透明に設定 */
+    transform: translateY(100%); /* 下からスライドするために位置を下に設定 */
+    animation: fee 2s forwards; /* フェードインアニメーションの設定 */
+}
+
+@keyframes fee {
+    to {
+      opacity: 1; /* アニメーション終了時に完全に表示 */
+      transform: translateY(0); /* アニメーション終了時の位置 */
+    }
+  }
+
+.fee::after {
+    position: absolute;
+    right: 15px;
+    width: 10px;
+    height: 7px;
+    background-color: #206851;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    content: '';
+    pointer-events: none;
+}
+
+.fee select {
+    appearance: none;
+    min-width: 230px;
+    height: 2.8em;
+    padding: .4em calc(.8em + 30px) .4em .8em;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 2%), 0 2px 3px -2px rgba(0 0 0 / 5%);
+    background-color: #fff;
+    color: #004831;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+
+.numberofpeople {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    opacity: 0; /* 初めは透明に設定 */
+    transform: translateY(100%); /* 下からスライドするために位置を下に設定 */
+    animation: numberofpeople 2s forwards; /* フェードインアニメーションの設定 */
+}
+
+@keyframes numberofpeople {
+    to {
+      opacity: 1; /* アニメーション終了時に完全に表示 */
+      transform: translateY(0); /* アニメーション終了時の位置 */
+    }
+  }
+
+.numberofpeople::after {
+    position: absolute;
+    right: 15px;
+    width: 10px;
+    height: 7px;
+    background-color: #206851;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    content: '';
+    pointer-events: none;
+}
+
+.numberofpeople select {
+    appearance: none;
+    min-width: 230px;
+    height: 2.8em;
+    padding: .4em calc(.8em + 30px) .4em .8em;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 2%), 0 2px 3px -2px rgba(0 0 0 / 5%);
+    background-color: #fff;
+    color: #004831;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.check-inline__label {
+    display: inline-block;
+    padding: 1.3rem 2rem;
+    margin-right: 18px;
+    border-radius: 3px;
+    transition: all .2s;
+    background-color: #F3F8F6;
+    color: #004831;
+    width: 10vw;
+    text-align: center;
+    border-radius:0% 40%;
+    font-size: 1em;
+    line-height: normal;
+    opacity: 0; /* 初めは透明に設定 */
+    transform: translateY(100%); /* 下からスライドするために位置を下に設定 */
+    animation: check-inline__label 2s forwards; /* フェードインアニメーションの設定 */
+}
+
+@keyframes check-inline__label {
+    to {
+      opacity: 1; /* アニメーション終了時に完全に表示 */
+      transform: translateY(0); /* アニメーション終了時の位置 */
+    }
+  }
+
+
+
+.scene:checked + .check-inline__label {
+    background: #D4C4A3;
+    color: #004831;
+    text-shadow: 0 0 1px rgba(0,0,0,.7);
+}
+
+.scene:focus + .check-inline__label {
+    /*outline-color: #4D90FE;*/
+    outline-offset: -2px;
+    outline-style: auto;
+    outline-width: 5px;
+}
+
+.btn-search {
+    background-color: #F3F8F6;
+    color:#004831;
+    width:20vw;
+    padding:1vw 0;
+    border-radius: 40px;
+    opacity: 0; /* 初めは透明に設定 */
+    transform: translateY(100%); /* 下からスライドするために位置を下に設定 */
+    animation: btn-search 2s forwards; /* フェードインアニメーションの設定 */
+}
+
+@keyframes btn-search {
+    to {
+      opacity: 1; /* アニメーション終了時に完全に表示 */
+      transform: translateY(0); /* アニメーション終了時の位置 */
+    }
+  }
+
+.btn-search:hover {
+    background-color: #D4C4A3;
+}

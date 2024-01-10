@@ -1,0 +1,52 @@
+INSERT INTO spots VALUES (0,'博多駅','福岡県福岡市博多区博多駅中央街１−１','なし','福岡県の博多区にある新幹線も止まる中心の駅');
+INSERT INTO images VALUES (0,1,'./img/hakata-station.jpg');
+INSERT INTO coodinates VALUES (0,1,33.5899110462441, 130.420799913285);
+INSERT INTO conditions VALUES (0,1,'test');
+
+SELECT spots.spots_id AS 'spots_id' , spots.name AS 'name' , spots.adress AS 'adress' , spots.time AS 'time' , spots.detail AS 'detail' ,
+        images.image AS 'image' ,
+        coodinates.latitude AS 'latitude' , coodinates.longitude AS 'longitude'
+        FROM spots 
+        INNER JOIN images 
+        ON spots.spots_id = images.spots_id 
+        INNER JOIN coodinates 
+        ON images.spots_id = coodinates.spots_id
+        INNER JOIN conditions
+        ON coodinates.spots_id = conditions.spots_id
+        GROUP BY spots.name;
+
+INSERT INTO spots VALUES 
+(0,'NOBOLT（ノボルト）','福岡県福岡市西区小戸２丁目１０−７６','21:00','国内最大級の屋内型スポーツ・アスレチック施設「ノボルト」。
+ノボルトは約4000㎡の広さ、約20ｍの高さの施設で​九州初導入を含む、16種のアトラクションで遊ぶことができます。​'),
+(0,'スポガ久留米','福岡県久留米市合川町２１２５','23:00','スポガ久留米のアイススケートはオールシーズン営業中！
+ボウリングやバッティングもあり、一日中楽しめる複合施設です。');
+
+
+INSERT INTO coodinates VALUES
+(0,3,33.59631413331162, 130.3213463518653),
+(0,4,33.31483417955579, 130.53152758651171);
+
+INSERT INTO images VALUES
+(0,3,'./img/NOBOLT.jpg'),
+(0,4,'./img/supoga.jpg');
+
+INSERT INTO conditions VALUES 
+(0,3,1,1,1,'~5000','2~3人',1,0,1),
+(0,4,1,1,1,'~3000','2~3人',1,0,1);
+
+SELECT spots.spots_id AS 'spots_id' , spots.name AS 'name' , spots.adress AS 'adress' , spots.time AS 'time' , spots.detail AS 'detail' ,
+        images.image AS 'image' ,
+        coodinates.latitude AS 'latitude' , coodinates.longitude AS 'longitude',
+        conditions.generation AS 'generation', conditions.fee AS 'fee', conditions.people AS 'people', conditions.date AS 'date', conditions.outdoor AS 'outdoor', conditions.indoor AS 'indoor'
+        FROM spots 
+        INNER JOIN images 
+        ON spots.spots_id = images.spots_id 
+        INNER JOIN coodinates 
+        ON images.spots_id = coodinates.spots_id
+        INNER JOIN conditions
+        ON coodinates.spots_id = conditions.spots_id
+        WHERE conditions.generation = 'family' AND
+        conditions.fee = '~5000' AND
+        conditions.people = '1〜2人' AND
+        conditions.date = false
+        GROUP BY spots.name;

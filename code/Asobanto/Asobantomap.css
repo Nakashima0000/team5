@@ -1,0 +1,21 @@
+.Infobox {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.infobox-title {
+    color: white !important;
+    font-size: 20px !important;
+    padding: 15px !important
+}
+
+.infobox-stalk {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    display: none !important;
+}
+
+#myMap {
+    width: 70%;
+    height: 400px;
+    margin-left: 15%;
+    margin-bottom: 1%;
+}
